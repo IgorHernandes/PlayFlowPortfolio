@@ -1,0 +1,16 @@
+# Portfólio PlayFlow
+
+## Como visualizar
+1. Extraia o arquivo ZIP mantendo as pastas `assets` e `documentos`.
+2. Abra `index.html` no navegador (Chrome, Edge ou Firefox).
+3. Para publicar, envie toda a pasta para um serviço de hospedagem de site estático (por exemplo, GitHub Pages, Netlify ou Vercel).
+
+## Antes da entrega
+- Preencha a matrícula do aluno no `index.html`.
+- Inclua o link do vídeo demonstrativo (máximo de 5 minutos).
+- Confira e atualize as datas do cronograma conforme o planejamento real do estágio.
+- Confirme a tecnologia efetivamente usada na interface: os documentos divergem entre React/Vite e Thymeleaf; a versão atual do Documento de Visão e da Especificação Suplementar descreve Thymeleaf.
+- Revise as capturas de tela para remover dados internos, nomes, valores ou e-mails antes de publicar e confirme a autorização da empresa.
+- Teste todos os links e arquivos no navegador.
+
+O site é estático e pode ser aberto localmente. Não precisa instalar dependências.

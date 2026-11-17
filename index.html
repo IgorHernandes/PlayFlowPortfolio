@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="Portf&oacute;lio acad&ecirc;mico do projeto PlayFlow &mdash; acompanhamento e automa&ccedil;&atilde;o de documentos de contas a pagar." name="description"/>
+  <title>
+   PlayFlow | Portf&oacute;lio do Projeto
+  </title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root{--bg:#080f1d;--panel:#101b2d;--panel2:#142238;--line:#25364e;--text:#edf4ff;--muted:#9aabc2;--blue:#56a9ff;--cyan:#43dfd0;--green:#4bd3a2;--yellow:#e9bd59;--red:#ff777e;--purple:#b79aff;--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#12335a 0,transparent 36%),var(--bg);color:var(--text);font-family:"DM Sans",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}
+.nav{position:sticky;top:0;z-index:20;background:#080f1de8;backdrop-filter:blur(16px);border-bottom:1px solid #ffffff12}.navin{max-width:1180px;margin:auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:10px;font:800 19px Manrope}.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#06111f;font-weight:900}.navlinks{display:flex;gap:20px;align-items:center;font-size:13px;color:var(--muted)}.navlinks a:hover{color:white}.navlinks .pill{padding:8px 13px;border:1px solid #3d6d9b;border-radius:999px;color:#b9ddff}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}.hero{padding:86px 0 62px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:.17em;text-transform:uppercase;font-weight:700}.hero h1{font:800 clamp(42px,6vw,72px)/1.04 Manrope;margin:18px 0}.hero h1 span{background:linear-gradient(90deg,#70baff,#4be1d0);background-clip:text;color:transparent}.lead{font-size:18px;color:#b5c5d9;max-width:650px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 17px;border-radius:12px;font-weight:700;font-size:14px;border:1px solid var(--line);background:#15243a}.btn.primary{background:linear-gradient(100deg,#58aaff,#3ed4cc);color:#071321;border:0}.hero-card{background:linear-gradient(145deg,#142943,#0e192a);border:1px solid #2b4969;border-radius:26px;padding:24px;box-shadow:0 24px 70px #0005;transform:rotate(1deg)}.hero-card .top{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}.metric{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}.metric div{background:#0b1728;border:1px solid #253b56;border-radius:15px;padding:15px}.metric b{display:block;font:700 23px Manrope}.metric small{color:var(--muted)}.status{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:currentColor}.waiting{color:var(--yellow);background:#e9bd5918}.integrated{color:var(--green);background:#4bd3a218}.cancelled{color:#b5c0d1;background:#b5c0d118}.error{color:var(--red);background:#ff777e18}
+section{padding:64px 0;border-top:1px solid #ffffff0c}.section-head{max-width:720px;margin-bottom:28px}.kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700}.section-head h2{font:800 clamp(28px,4vw,40px)/1.16 Manrope;margin:9px 0}.section-head p{color:var(--muted);margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,#122037,#0e192a);border:1px solid var(--line);border-radius:var(--radius);padding:22px}.card h3{font:700 17px Manrope;margin:8px 0}.card p{font-size:14px;color:var(--muted);margin:0}.icon{width:40px;height:40px;border-radius:13px;background:#193a5b;color:#7cc5ff;display:grid;place-items:center;font-size:19px}.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}.node{padding:13px 16px;background:#142943;border:1px solid #315273;border-radius:12px;font-weight:700;font-size:13px}.arrow{color:var(--cyan);font-size:20px}.note{border:1px solid #6c5629;background:#32291466;color:#f3d99b;border-radius:14px;padding:14px 17px;font-size:13px;margin-top:18px}
+.stack{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.tag{padding:7px 11px;border:1px solid #304763;background:#13243a;border-radius:9px;color:#c8d9ed;font-size:12px;font-weight:600}
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.case{display:flex;gap:14px;padding:18px;border:1px solid var(--line);background:#101d30;border-radius:15px}.case-num{font:800 14px Manrope;color:var(--cyan);background:#17364c;border-radius:10px;width:34px;height:34px;display:grid;place-items:center;flex-shrink:0}.case h3{font-size:15px;margin:0 0 4px}.case p{font-size:13px;color:var(--muted);margin:0}.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.phase{padding:18px;border-top:2px solid var(--blue);background:#111e31;border-radius:0 0 14px 14px}.phase small{color:var(--cyan);font-weight:700}.phase h3{font-size:15px;margin:7px 0}.phase p{font-size:13px;color:var(--muted);margin:0}
+.docgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.doc{display:flex;align-items:center;gap:13px;padding:15px;background:#111e31;border:1px solid var(--line);border-radius:14px;transition:.2s}.doc:hover{border-color:#4b91c7;transform:translateY(-2px)}.pdf{width:39px;height:42px;border-radius:9px;background:#3a2530;color:#ff9ba5;display:grid;place-items:center;font-size:11px;font-weight:800}.doc b{display:block;font-size:13px}.doc small{color:var(--muted);font-size:11px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.shot{background:#101d30;border:1px solid var(--line);border-radius:16px;overflow:hidden}.shot img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#09111e;cursor:zoom-in}.shot div{padding:12px 15px}.shot b{font-size:14px}.shot small{display:block;color:var(--muted);font-size:12px}
+.diagrams{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.diagram{background:#101d30;border:1px solid var(--line);border-radius:16px;overflow:hidden}.diagram img{width:100%;height:230px;object-fit:contain;background:#f7f8fa;cursor:zoom-in}.diagram div{padding:13px 16px}.diagram b{font-size:14px}.diagram small{display:block;color:var(--muted)}
+.video-box{border:1px dashed #47617e;border-radius:18px;padding:28px;background:#101d30;text-align:center}.video-box .icon{margin:0 auto 12px}.video-box p{color:var(--muted);font-size:14px;max-width:560px;margin:8px auto 0}
+.student{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.student h3{font:700 22px Manrope;margin:0}.student p{color:var(--muted);margin:5px 0}.footer{padding:28px 0;color:#8294aa;font-size:12px;border-top:1px solid #ffffff12}.footerin{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.lightbox{display:none;position:fixed;inset:0;background:#02060de8;z-index:99;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:95vw;max-height:90vh;object-fit:contain}.close{position:absolute;right:22px;top:15px;color:white;font-size:30px;cursor:pointer;background:none;border:0}
+@media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:58px}.hero-card{transform:none}.grid,.docgrid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:repeat(2,1fr)}.navlinks{gap:10px}.navlinks a:not(.pill){display:none}}
+@media(max-width:560px){.demo-video{max-height:320px}.schedule th,.schedule td{padding:10px}.wrap{padding:0 17px}.navin{padding:11px 17px}.hero{padding-top:45px}.grid,.docgrid,.cases,.gallery,.diagrams{grid-template-columns:1fr}.timeline{grid-template-columns:1fr 1fr}.hero h1{font-size:43px}.lead{font-size:16px}.card{padding:18px}}
+
+.schedule-intro,.schedule-note{color:var(--muted);font-size:13px}
+.table-wrap{width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin-top:14px}
+.schedule{width:100%;border-collapse:collapse;min-width:680px;background:#101d30;font-size:13px}
+.schedule th{background:#19314d;color:#dcecff;text-align:left;font-weight:700}
+.schedule th,.schedule td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.schedule tbody tr:last-child td{border-bottom:0}
+.schedule tbody tr:hover{background:#172943}
+.schedule-note{margin-top:12px}
+.demo-video{display:block;width:100%;max-width:900px;max-height:520px;margin:0 auto;border-radius:14px;background:#000}
+section{padding:52px 0}
+  </style>
+ </head>
+ <body>
+  <header class="nav">
+   <div class="navin">
+    <a class="brand" href="#inicio">
+     <span class="logo">
+      P
+     </span>
+     PlayFlow
+    </a>
+    <nav class="navlinks">
+     <a href="#projeto">
+      Projeto
+     </a>
+     <a href="#funcionalidades">
+      Funcionalidades
+     </a>
+     <a href="#desenvolvimento">
+      Desenvolvimento
+     </a>
+     <a href="#documentacao">
+      Documenta&ccedil;&atilde;o
+     </a>
+     <a href="#evidencias">
+      Evid&ecirc;ncias
+     </a>
+     <a class="pill" href="#aluno">
+      Portf&oacute;lio de est&aacute;gio &nearrow;
+     </a>
+    </nav>
+   </div>
+  </header>
+  <main>
+   <div class="wrap" id="inicio">
+    <div class="hero">
+     <div>
+      <div class="eyebrow">
+       Projeto de est&aacute;gio &middot; Engenharia de Software
+      </div>
+      <h1>
+       Organiza&ccedil;&atilde;o e acompanhamento de
+       <span>
+        contas a pagar.
+       </span>
+      </h1>
+      <p class="lead">
+       O PlayFlow &eacute; uma aplica&ccedil;&atilde;o web desenvolvida para centralizar documentos de pagamento, consultar informa&ccedil;&otilde;es provenientes do Fluig e apoiar o acompanhamento do processamento pelo setor de Contas a Pagar.
+      </p>
+      <div class="actions">
+       <a class="btn primary" href="#projeto">
+        Conhe&ccedil;a o projeto
+        <span>
+         &darr;
+        </span>
+       </a>
+       <a class="btn" href="documentos/relatorio-estagio.pdf" target="_blank">
+        Ver relat&oacute;rio &nearrow;
+       </a>
+      </div>
+     </div>
+     <div class="hero-card">
+      <div class="top">
+       <b>
+        PLAYFLOW / PAINEL
+       </b>
+       <span>
+        Vis&atilde;o do processo
+       </span>
+      </div>
+      <h3 style="font:700 20px Manrope;margin:22px 0 5px">
+       Documentos de pagamento
+      </h3>
+      <p style="color:var(--muted);font-size:13px;margin:0">
+       Acompanhamento por situa&ccedil;&atilde;o
+      </p>
+      <div class="metric">
+       <div>
+        <b style="color:var(--yellow)">
+         Aguardando
+        </b>
+        <small>
+         Em an&aacute;lise / processamento
+        </small>
+       </div>
+       <div>
+        <b style="color:var(--green)">
+         Integrado
+        </b>
+        <small>
+         Processo conclu&iacute;do
+        </small>
+       </div>
+       <div>
+        <b style="color:#bdc9d8">
+         Cancelado
+        </b>
+        <small>
+         Registro cancelado
+        </small>
+       </div>
+       <div>
+        <b style="color:var(--red)">
+         Erro
+        </b>
+        <small>
+         Falha no processamento
+        </small>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+   <section id="projeto">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       01 / Vis&atilde;o geral
+      </div>
+      <h2>
+       O problema que o PlayFlow busca resolver
+      </h2>
+      <p>
+       O processo de contas a pagar envolve informa&ccedil;&otilde;es registradas no Fluig e atividades de confer&ecirc;ncia e lan&ccedil;amento no Siagri. A repeti&ccedil;&atilde;o de registros e o uso de controles paralelos podem gerar retrabalho, atrasos e inconsist&ecirc;ncias.
+      </p>
+     </div>
+     <div class="grid">
+      <article class="card">
+       <div class="icon">
+        ◎
+       </div>
+       <h3>
+        Centraliza&ccedil;&atilde;o
+       </h3>
+       <p>
+        Reunir documentos e informa&ccedil;&otilde;es de pagamento em um painel pr&oacute;prio, reduzindo a dispers&atilde;o dos controles.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        &orarr;
+       </div>
+       <h3>
+        Consulta automatizada
+       </h3>
+       <p>
+        Consultar periodicamente pagamentos confirmados no ambiente Fluig/Oracle e importar os dados para a base do PlayFlow.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        ⌁
+       </div>
+       <h3>
+        Rastreabilidade
+       </h3>
+       <p>
+        Organizar os documentos por situa&ccedil;&atilde;o e apoiar a consulta do hist&oacute;rico e das movimenta&ccedil;&otilde;es do processo.
+       </p>
+      </article>
+     </div>
+     <div class="flow">
+      <div class="node">
+       Fluig / Oracle
+       <br/>
+       <small style="color:var(--muted)">
+        Origem dos dados
+       </small>
+      </div>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <div class="node">
+       Servi&ccedil;o de importa&ccedil;&atilde;o
+       <br/>
+       <small style="color:var(--muted)">
+        Consulta e tratamento
+       </small>
+      </div>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <div class="node">
+       PostgreSQL
+       <br/>
+       <small style="color:var(--muted)">
+        Base do PlayFlow
+       </small>
+      </div>
+      <span class="arrow">
+       &rarr;
+      </span>
+      <div class="node">
+       Painel e API
+       <br/>
+       <small style="color:var(--muted)">
+        Consulta e gest&atilde;o
+       </small>
+      </div>
+     </div>
+   </section>
+   <section id="funcionalidades">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       02 / Recursos do sistema
+      </div>
+      <h2>
+       Funcionalidades e acompanhamento
+      </h2>
+      <p>
+       As telas e documentos disponibilizados registram as seguintes &aacute;reas e recursos do PlayFlow.
+      </p>
+     </div>
+     <div class="grid">
+      <article class="card">
+       <div class="icon">
+        ▣
+       </div>
+       <h3>
+        Autentica&ccedil;&atilde;o
+       </h3>
+       <p>
+        Acesso ao sistema por tela de login e controle de usu&aacute;rios autorizados.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        ▤
+       </div>
+       <h3>
+        Painel de documentos
+       </h3>
+       <p>
+        Visualiza&ccedil;&atilde;o dos documentos de pagamento organizados por situa&ccedil;&atilde;o.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        &telrec;
+       </div>
+       <h3>
+        Consulta e hist&oacute;rico
+       </h3>
+       <p>
+        Consulta de registros e movimenta&ccedil;&otilde;es para acompanhar o processamento.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        &rlarr;
+       </div>
+       <h3>
+        API REST / Console
+       </h3>
+       <p>
+        Opera&ccedil;&otilde;es de consulta e gerenciamento de documentos, com console interno para apoiar requisi&ccedil;&otilde;es e visualizar respostas.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        ♙
+       </div>
+       <h3>
+        Usu&aacute;rios e permiss&otilde;es
+       </h3>
+       <p>
+        Gerenciamento de usu&aacute;rios e perfis de acesso, com &aacute;rea de permiss&otilde;es restrita a administradores.
+       </p>
+      </article>
+      <article class="card">
+       <div class="icon">
+        ⟳
+       </div>
+       <h3>
+        Extra&ccedil;&atilde;o peri&oacute;dica
+       </h3>
+       <p>
+        Processo automatizado iniciado por Scheduler para consultar pagamentos confirmados no Fluig.
+       </p>
+      </article>
+     </div>
+     <div class="stack">
+      <span class="status waiting">
+       <i class="dot">
+       </i>
+       Aguardando
+      </span>
+      <span class="status integrated">
+       <i class="dot">
+       </i>
+       Integrado
+      </span>
+      <span class="status cancelled">
+       <i class="dot">
+       </i>
+       Cancelado
+      </span>
+      <span class="status error">
+       <i class="dot">
+       </i>
+       Erro
+      </span>
+     </div>
+    </div>
+   </section>
+   <section id="desenvolvimento">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       03 / Constru&ccedil;&atilde;o
+      </div>
+      <h2>
+       Arquitetura e tecnologias
+      </h2>
+      <p>
+       A solu&ccedil;&atilde;o separa a interface, as regras de neg&oacute;cio, a persist&ecirc;ncia e a comunica&ccedil;&atilde;o com os sistemas de origem.
+      </p>
+     </div>
+     <div class="grid">
+      <article class="card">
+       <h3>
+        Camada web
+       </h3>
+       <p>
+        Interface acessada pelo navegador, com p&aacute;ginas para login, painel, hist&oacute;rico e administra&ccedil;&atilde;o.
+       </p>
+      </article>
+      <article class="card">
+       <h3>
+        Backend e servi&ccedil;os
+       </h3>
+       <p>
+        Java e Spring Boot organizam regras de neg&oacute;cio, autentica&ccedil;&atilde;o, servi&ccedil;os e disponibiliza&ccedil;&atilde;o da API REST.
+       </p>
+      </article>
+      <article class="card">
+       <h3>
+        Persist&ecirc;ncia e origem
+       </h3>
+       <p>
+        PostgreSQL armazena os dados pr&oacute;prios do PlayFlow. Oracle &eacute; consultado como fonte de informa&ccedil;&otilde;es relacionadas ao Fluig.
+       </p>
+      </article>
+     </div>
+     <div class="stack">
+      <span class="tag">
+       Java
+      </span>
+      <span class="tag">
+       Spring Boot
+      </span>
+      <span class="tag">
+       Thymeleaf
+      </span>
+      <span class="tag">
+       PostgreSQL
+      </span>
+      <span class="tag">
+       Oracle Database
+      </span>
+      <span class="tag">
+       Maven
+      </span>
+      <span class="tag">
+       Git
+      </span>
+      <span class="tag">
+       Astah UML
+      </span>
+      <span class="tag">
+       BPMN
+      </span>
+     </div>
+     <h3 style="font:700 20px Manrope;margin:32px 0 15px">
+      Casos de uso documentados e previstos
+     </h3>
+     <div class="cases">
+      <div class="case">
+       <span class="case-num">
+        01
+       </span>
+       <div>
+        <h3>
+         Gerenciar usu&aacute;rios
+        </h3>
+        <p>
+         Cadastro, defini&ccedil;&atilde;o de perfil, autentica&ccedil;&atilde;o e recupera&ccedil;&atilde;o de senha conforme a especifica&ccedil;&atilde;o.
+        </p>
+       </div>
+      </div>
+      <div class="case">
+       <span class="case-num">
+        02
+       </span>
+       <div>
+        <h3>
+         Gerenciar integra&ccedil;&otilde;es
+        </h3>
+        <p>
+         Acompanhar documentos, consultar dados de origem e tratar resultados e situa&ccedil;&otilde;es do processo. O envio ao ERP permanece condicionado &agrave; implementa&ccedil;&atilde;o.
+        </p>
+       </div>
+      </div>
+      <div class="case">
+       <span class="case-num">
+        03
+       </span>
+       <div>
+        <h3>
+         Visualizar documentos por status
+        </h3>
+        <p>
+         Consultar os documentos de pagamento e acompanhar sua situa&ccedil;&atilde;o no painel.
+        </p>
+       </div>
+      </div>
+      <div class="case">
+       <span class="case-num">
+        04
+       </span>
+       <div>
+        <h3>
+         Filtrar por filial
+        </h3>
+        <p>
+         Localizar documentos conforme a unidade organizacional associada.
+        </p>
+       </div>
+      </div>
+      <div class="case">
+       <span class="case-num">
+        05
+       </span>
+       <div>
+        <h3>
+         Extrair pagamentos confirmados
+        </h3>
+        <p>
+         Executar a consulta peri&oacute;dica dos pagamentos confirmados no Fluig.
+        </p>
+       </div>
+      </div>
+      <div class="case">
+       <span class="case-num">
+        06
+       </span>
+       <div>
+        <h3>
+         Registrar e acompanhar hist&oacute;rico
+        </h3>
+        <p>
+         Consultar registros e movimenta&ccedil;&otilde;es associados aos documentos.
+        </p>
+       </div>
+      </div>
+     </div>
+     <h3 style="font:700 20px Manrope;margin:32px 0 15px">
+       Cronograma de desenvolvimento
+      </h3>
+      <p class="schedule-intro">
+       Cronograma consolidado a partir do planejamento do projeto e das atividades registradas no Classroom, com os respectivos prazos e situações de entrega.
+      </p>
+      <div class="table-wrap">
+       <table class="schedule">
+        <thead>
+         <tr><th>Fase</th><th>Atividade / Entrega</th><th>Data registrada</th><th>Situação</th></tr>
+        </thead>
+        <tbody>
+         <tr><td>1 — Elaboração e início</td><td>Cronograma do projeto</td><td>09/05/2026</td><td>Concluído</td></tr>
+         <tr><td>1 — Elaboração e início</td><td>Pedidos dos investidores</td><td>13/05/2026</td><td>Concluído</td></tr>
+         <tr><td>1 — Elaboração e início</td><td>Especificação suplementar</td><td>14/05/2026</td><td>Concluído</td></tr>
+         <tr><td>1 — Elaboração e início</td><td>Documento de visão</td><td>19/05/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Protótipo (telas)</td><td>25/05/2026 e 26/05/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Diagrama de casos de uso</td><td>03/06/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Workflow (AS-IS)</td><td>07/06/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Glossário</td><td>09/05/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Plano de estágio completo</td><td>16/06/2026</td><td>Concluído</td></tr>
+         <tr><td>3 — Lançamento e execução</td><td>CRUD funcional</td><td>21/06/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Especificação de Caso de Uso</td><td>10/10/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Diagrama de Entidade e Relacionamento (DER)</td><td>17/10/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Diagrama de Classes</td><td>17/10/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Diagrama de Sequência</td><td>24/10/2026</td><td>Concluído</td></tr>
+         <tr><td>2 — Definição e plano</td><td>Diagrama de Estados</td><td>24/10/2026</td><td>Concluído</td></tr>
+         <tr><td>3 — Lançamento e execução</td><td>Diagrama de Implantação</td><td>31/10/2026</td><td>Concluído</td></tr>
+         <tr><td>3 — Lançamento e execução</td><td>Relatório de Estágio</td><td>31/10/2026</td><td>Concluído</td></tr>
+         <tr><td>5 — Fechamento do projeto</td><td>Documentos da banca de estágio</td><td>09/11/2026</td><td>Concluído</td></tr>
+         <tr><td>5 — Fechamento do projeto</td><td>Atestado de Qualificação</td><td>09/11/2026</td><td>Concluído</td></tr>
+        </tbody>
+       </table>
+      </div>
+      <p class="schedule-note">
+       Situação geral: todas as atividades listadas no cronograma foram concluídas e entregues. As datas foram mantidas conforme o planejamento original e os prazos exibidos no Classroom.
+      </p>
+    </div>
+   </section>
+   <section id="documentacao">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       04 / Materiais t&eacute;cnicos
+      </div>
+      <h2>
+       Documenta&ccedil;&atilde;o do projeto
+      </h2>
+      <p>
+       Diagramas e documentos de apoio reunidos para consulta. Clique para abrir os arquivos.
+      </p>
+     </div>
+     <div class="diagrams">
+      <div class="diagram">
+       <img alt="Diagrama de caso de uso" class="zoom" src="assets/playflow_-_diagrama_de_caso_de_uso.png"/>
+       <div>
+        <b>
+         Diagrama de Caso de Uso
+        </b>
+        <small>
+         Atores e funcionalidades previstas no sistema.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="Diagrama de classes" class="zoom" src="assets/diagrama_de_classe.png"/>
+       <div>
+        <b>
+         Diagrama de Classes
+        </b>
+        <small>
+         Estrutura est&aacute;tica e rela&ccedil;&otilde;es entre classes.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="DER implementado" class="zoom" src="assets/der_implementado_playflow.png"/>
+       <div>
+        <b>
+         DER implementado
+        </b>
+        <small>
+         Modelo de dados representado na vers&atilde;o implementada.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="DER do PlayFlow" class="zoom" src="assets/der_playflow.png"/>
+       <div>
+        <b>
+         Diagrama Entidade-Relacionamento
+        </b>
+        <small>
+         Entidades e relacionamentos do projeto.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="Sequ&ecirc;ncia extra&ccedil;&atilde;o" class="zoom" src="assets/playflow_-_sucextrairpagamentosconfirmados.png"/>
+       <div>
+        <b>
+         Sequ&ecirc;ncia &mdash; Extra&ccedil;&atilde;o de pagamentos
+        </b>
+        <small>
+         Intera&ccedil;&atilde;o entre Scheduler, servi&ccedil;os e persist&ecirc;ncia.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="Sequ&ecirc;ncia gerenciamento usu&aacute;rio" class="zoom" src="assets/playflow_-_sucgerenciarusuario.png"/>
+       <div>
+        <b>
+         Sequ&ecirc;ncia &mdash; Gerenciar usu&aacute;rio
+        </b>
+        <small>
+         Fluxo de intera&ccedil;&atilde;o do gerenciamento de usu&aacute;rios.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="Diagrama de estado" class="zoom" src="assets/statususuario_-_diagrama_de_estado.png"/>
+       <div>
+        <b>
+         Diagrama de Estados
+        </b>
+        <small>
+         Estados documentados para usu&aacute;rio.
+        </small>
+       </div>
+      </div>
+      <div class="diagram">
+       <img alt="Diagrama de implanta&ccedil;&atilde;o" class="zoom" src="assets/playflow_-_diagrama_de_implanta_o.png"/>
+       <div>
+        <b>
+         Diagrama de Implanta&ccedil;&atilde;o
+        </b>
+        <small>
+         Vis&atilde;o da distribui&ccedil;&atilde;o dos componentes.
+        </small>
+       </div>
+      </div>
+     </div>
+     <h3 style="font:700 19px Manrope;margin:30px 0 14px">
+      Documentos para leitura
+     </h3>
+     <div class="docgrid">
+      <a class="doc" href="documentos/relatorio-estagio.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Relat&oacute;rio de Est&aacute;gio
+        </b>
+        <small>
+         Documento principal do est&aacute;gio
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/documento-de-visao.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Documento de Vis&atilde;o
+        </b>
+        <small>
+         Problema, posicionamento e escopo
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/especificacao-suplementar.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Especifica&ccedil;&atilde;o Suplementar
+        </b>
+        <small>
+         Requisitos t&eacute;cnicos e operacionais
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/pedidos-do-investidor.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Pedidos do Investidor
+        </b>
+        <small>
+         Necessidades e contexto do usu&aacute;rio
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/glossario.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Gloss&aacute;rio
+        </b>
+        <small>
+         Termos e conceitos do PlayFlow
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/caso-de-uso-gerenciar-usuarios.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Especifica&ccedil;&atilde;o &mdash; Gerenciar Usu&aacute;rios
+        </b>
+        <small>
+         Fluxos e condi&ccedil;&otilde;es do caso de uso
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/caso-de-uso-gerenciar-integracoes.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Especifica&ccedil;&atilde;o &mdash; Gerenciar Integra&ccedil;&otilde;es
+        </b>
+        <small>
+         Fluxos e alternativas documentadas
+        </small>
+       </span>
+      </a>
+      <a class="doc" href="documentos/workflow-as-is.pdf" target="_blank">
+       <span class="pdf">
+        PDF
+       </span>
+       <span>
+        <b>
+         Workflow AS-IS
+        </b>
+        <small>
+         Representa&ccedil;&atilde;o do processo atual
+        </small>
+       </span>
+      </a>
+     </div>
+    </div>
+   </section>
+   <section id="evidencias">
+     <div class="wrap">
+      <div class="section-head">
+       <div class="kicker">05 / Evidências</div>
+       <h2>Telas e demonstração do PlayFlow</h2>
+       <p>Capturas de tela e vídeo demonstrativo das funcionalidades documentadas e implementadas no sistema.</p>
+      </div>
+      <div class="gallery">
+      <div class="shot">
+       <img alt="Tela de login" class="zoom" src="assets/login.png"/>
+       <div>
+        <b>
+         Autentica&ccedil;&atilde;o
+        </b>
+        <small>
+         Tela de entrada do sistema.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Painel aguardando" class="zoom" src="assets/painel_aguardando.png"/>
+       <div>
+        <b>
+         Painel &mdash; Aguardando
+        </b>
+        <small>
+         Vis&atilde;o dos documentos que aguardam processamento.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Hist&oacute;rico" class="zoom" src="assets/hist_rico.png"/>
+       <div>
+        <b>
+         Hist&oacute;rico
+        </b>
+        <small>
+         Consulta de registros e movimenta&ccedil;&otilde;es.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Estado integrado" class="zoom" src="assets/integrado.png"/>
+       <div>
+        <b>
+         Estado &mdash; Integrado
+        </b>
+        <small>
+         Representa&ccedil;&atilde;o visual de documento integrado.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Estado cancelado" class="zoom" src="assets/cancelado.png"/>
+       <div>
+        <b>
+         Estado &mdash; Cancelado
+        </b>
+        <small>
+         Representa&ccedil;&atilde;o visual de documento cancelado.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Estado erro" class="zoom" src="assets/erro.png"/>
+       <div>
+        <b>
+         Estado &mdash; Erro
+        </b>
+        <small>
+         Tratamento visual de uma ocorr&ecirc;ncia de erro.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Console API" class="zoom" src="assets/console-api.png"/>
+       <div>
+        <b>
+         Console da API
+        </b>
+        <small>
+         Interface de apoio para requisi&ccedil;&otilde;es e respostas.
+        </small>
+       </div>
+      </div>
+      <div class="shot">
+       <img alt="Permiss&otilde;es" class="zoom" src="assets/tela_altera_o_permiss_es_perfis_restrito_a_administradores.png"/>
+       <div>
+        <b>
+         Permiss&otilde;es e perfis
+        </b>
+        <small>
+         &Aacute;rea administrativa de controle de acesso.
+        </small>
+       </div>
+      </div>
+     </div>
+     
+     <div class="video-box" style="margin-top:24px">
+       <h3 style="margin:0 0 16px;font:700 18px Manrope">Demonstração do PlayFlow</h3>
+       <video class="demo-video" controls preload="metadata">
+        <source src="videos/playflow_trabalho_final.mp4" type="video/mp4">
+        Seu navegador não suporta a reprodução de vídeos.
+       </video>
+       <p>Vídeo demonstrativo das principais funcionalidades e do funcionamento do sistema PlayFlow.</p>
+      </div>
+   </section>
+   <section id="aluno">
+    <div class="wrap">
+     <div class="section-head">
+      <div class="kicker">
+       06 / Identifica&ccedil;&atilde;o
+      </div>
+      <h2>
+       Respons&aacute;vel pelo projeto
+      </h2>
+      <p>
+       Informa&ccedil;&otilde;es acad&ecirc;micas e orienta&ccedil;&atilde;o.
+      </p>
+     </div>
+     <div class="card student">
+      <div>
+       <h3>
+        Igor Hernandes Ferreira da Silva
+       </h3>
+       <p>
+        Bacharelado em Engenharia de Software &middot; UniFil
+       </p>
+       <p>
+        Professor orientador: Marcos Leandro Nascimento
+       </p>
+       <p>
+        Matr&iacute;cula:
+        <b style="color:#fff">
+         242072003
+        </b>
+       </p>
+      </div>
+      <div class="logo" style="width:58px;height:58px;font-size:26px;border-radius:17px">
+       P
+      </div>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="wrap footerin">
+    <span>
+     PlayFlow &middot; Portf&oacute;lio do Projeto de Est&aacute;gio &middot; 2026
+    </span>
+    <span>
+     Projeto acad&ecirc;mico desenvolvido no contexto da Ponto Rural.
+    </span>
+   </div>
+  </footer>
+  <div class="lightbox" id="lightbox">
+   <button aria-label="Fechar" class="close">
+    &times;
+   </button>
+   <img alt="Imagem ampliada" src=""/>
+  </div>
+  <script>
+   const lb=document.getElementById('lightbox'), lbimg=lb.querySelector('img');
+document.querySelectorAll('.zoom').forEach(el=>el.addEventListener('click',()=>{lbimg.src=el.src;lb.classList.add('open')}));
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('close'))lb.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+  </script>
+ </body>
+</html>
